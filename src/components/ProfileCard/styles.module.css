@@ -1,0 +1,52 @@
+.profileStats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profileStats img {
+  height: 18px;
+  width: 18px;
+}
+
+.card {
+  background: var(--base-profile);
+  box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 864px;
+  padding: 32px 40px;
+}
+
+.card > img {
+  height: 148px;
+  width: 148px;
+  border-radius: 8px;
+}
+
+.userInfo {
+  flex: 1;
+}
+
+.userHeader a {
+  text-transform: uppercase;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.userHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userSocialMedia {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: var(--base-subtitle);
+  margin-top: 24px;
+}

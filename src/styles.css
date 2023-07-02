@@ -15,7 +15,7 @@
   --base-post: #112131;
   --base-profile: #0b1b2b;
   --base-background: #071422;
-  --base-input: #040fa1;
+  --base-input: #040f1a;
 }
 
 h1,
@@ -26,7 +26,8 @@ h5,
 h6,
 span,
 p,
-input {
+input,
+a {
   font-family: 'Nunito';
   line-height: 160%;
 }
@@ -37,6 +38,10 @@ h1 {
 
 h2 {
   color: var(--base-subtitle);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%;
 }
 
 p {

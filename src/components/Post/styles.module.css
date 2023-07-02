@@ -1,0 +1,32 @@
+.postContainer {
+  border-radius: 10px;
+  background: var(--base-post);
+  padding: 32px;
+}
+
+.postContainer header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.postContainer header h1 {
+  font-size: 20px;
+}
+
+.postContainer header time {
+  font-size: 14px;
+}
+
+.previewTextWrapper {
+  overflow: hidden;
+}
+
+.previewTextWrapper p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: pre-wrap;
+}

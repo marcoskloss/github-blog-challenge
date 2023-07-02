@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  z-index: -1;
+}
+
+.header img:last-child {
+  transform: rotateY(180deg);
+}
+
+.glow {
+  width: 236px;
+  height: 236px;
+  background: #14589c;
+  filter: blur(200px);
+  position: absolute;
+}
+
+.glowLeft {
+  left: -130px;
+  top: -96px;
+}
+
+.glowRight {
+  right: -15px;
+  top: -52px;
+}

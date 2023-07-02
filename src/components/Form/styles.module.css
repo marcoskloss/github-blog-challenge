@@ -1,0 +1,33 @@
+.formContainer {
+  margin-top: 56px;
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.formHeader span {
+  font-size: 14px;
+}
+
+.formContainer input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: var(--base-input);
+  border: 1px solid var(--base-border);
+
+  font-size: 16px;
+  color: var(--base-text);
+}
+
+.formContainer input::placeholder {
+  color: var(--base-label);
+}
+
+.formContainer input:focus {
+  outline: 1px solid var(--blue);
+}
