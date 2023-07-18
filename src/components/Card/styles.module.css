@@ -15,9 +15,37 @@
   border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 32px;
+  flex-direction: column;
   max-width: 864px;
   padding: 32px 40px;
+}
+
+.card header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card .content {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.card .content h1 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.card footer {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .card > img {

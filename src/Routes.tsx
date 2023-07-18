@@ -2,14 +2,19 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Home from './pages/Home';
 import getGithubUserInfo from './services/get-github-user-info';
+import Post from './pages/Post';
+import { getPostById } from './services/search-posts';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
-    loader: async () => {
-      return getGithubUserInfo('marcoskloss');
-    },
+    loader: async () => getGithubUserInfo('marcoskloss'),
+  },
+  {
+    path: 'posts/:postId',
+    element: <Post />,
+    loader: async ({ params }) => getPostById(Number(params.postId)),
   },
 ]);
 

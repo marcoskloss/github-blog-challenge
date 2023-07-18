@@ -1,32 +1,28 @@
 .postContainer {
+  --padding: 32px;
+
   border-radius: 10px;
   background: var(--base-post);
-  padding: 32px;
-}
-
-.postContainer header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.postContainer header h1 {
-  font-size: 20px;
-}
-
-.postContainer header time {
-  font-size: 14px;
-}
-
-.previewTextWrapper {
+  padding: var(--padding);
   overflow: hidden;
+  position: relative;
 }
 
-.previewTextWrapper p {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  white-space: pre-wrap;
+.postContainer.previewMode {
+  height: 260px;
+}
+
+.previewMode .borderGlow {
+  width: calc(100% + 2 * var(--padding));
+  height: 20px;
+  background: rgb(4, 9, 14);
+  background: linear-gradient(
+    0deg,
+    rgb(8, 17, 26) 0%,
+    rgba(9, 18, 27, 1) 35%,
+    rgba(17, 33, 49, 1) 100%
+  );
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
 }

@@ -1,0 +1,10 @@
+.postList {
+  margin: 48px 0;
+  display: grid;
+  grid-template: auto / 1fr 1fr;
+  gap: 32px;
+}
+
+.postList a {
+  text-decoration: none;
+}

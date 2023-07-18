@@ -1,57 +1,41 @@
 import githubIcon from '../../assets/github.svg';
 import usersIcon from '../../assets/user.svg';
 import companyIcon from '../../assets/company.svg';
+import { Card, Stats } from '../Card';
 
-import styles from './styles.module.css';
 import { GithubUser } from '../../services/get-github-user-info';
 
-type ProfileStatsProps = {
-  text: string;
-  icon: string;
-};
-
-function ProfileStats({ text, icon }: ProfileStatsProps) {
-  return (
-    <div className={styles.profileStats}>
-      <img src={icon} alt="whatever" />
-      <span>{text}</span>
-    </div>
-  );
-}
-
 type Props = {
-  userInfo: GithubUser;
+  user: GithubUser;
 };
 
-function ProfileCard({ userInfo }: Props) {
-  const formatFollowersText = (followers: number) => {
-    if (followers === 1) return '1 seguidor';
-    return `${followers} seguidores`;
-  };
-
+function ProfileCard({ user }: Props) {
   return (
-    <div className={styles.card}>
-      <img src={userInfo.avatar_url} alt={userInfo.name} />
-      <div className={styles.userInfo}>
-        <div className={styles.userHeader}>
-          <h1>{userInfo.name}</h1>
-          <a href={userInfo.html_url} target="_blank" rel="noreferrer">
+    <Card.Container grid>
+      <img src={user.avatar_url} alt={user.name} />
+
+      <Card.Content>
+        <Card.Header>
+          <h1>{user.name}</h1>
+          <a href={user.html_url} target="_blank" rel="noreferrer">
             Github
           </a>
-        </div>
+        </Card.Header>
 
-        <p>{userInfo.bio}</p>
+        <p>{user.bio}</p>
 
-        <div className={styles.userSocialMedia}>
-          <ProfileStats text={userInfo.username} icon={githubIcon} />
-          <ProfileStats text={userInfo.company} icon={companyIcon} />
-          <ProfileStats
-            text={formatFollowersText(userInfo.followers)}
+        <div style={{ display: 'flex', gap: 32 }}>
+          <Stats text={user.username} icon={githubIcon} />
+          <Stats text={user.company} icon={companyIcon} />
+          <Stats
+            text={`${user.followers} ${
+              user.followers === 1 ? 'seguidor' : 'seguidores'
+            }`}
             icon={usersIcon}
           />
         </div>
-      </div>
-    </div>
+      </Card.Content>
+    </Card.Container>
   );
 }
 

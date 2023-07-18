@@ -3,12 +3,16 @@ import api from './api';
 
 const postsRepo = 'marcoskloss/github-blog-challenge';
 
-type Post = {
+export type Post = {
   body: string;
   title: string;
+  number: number;
+  created_at: Date;
+  comments: number;
+  html_url: string;
 };
 
-type Response = {
+type SearchPostsByQueryResponse = {
   total_count: number;
   items: Post[];
 };
@@ -18,14 +22,31 @@ type PostList = {
   count: number;
 };
 
-async function searchPosts(query = ''): Promise<PostList> {
-  const { data } = await api.get<Response>(
+function postDateToJSDate(post: Post): Post {
+  return { ...post, created_at: new Date(post.created_at) };
+}
+
+export async function searchPostsByQuery(query = ''): Promise<PostList> {
+  const { data } = await api.get<SearchPostsByQueryResponse>(
     `/search/issues?q=${query}%20repo:${postsRepo}`
   );
   return {
     count: data.total_count,
-    posts: data.items, // formatar resultado usando https://github.com/remarkjs/react-markdown
+    posts: data.items.map(postDateToJSDate),
   };
 }
 
-export default searchPosts;
+export async function getAllPosts(): Promise<PostList> {
+  const { data } = await api.get<Post[]>(`/repos/${postsRepo}/issues`);
+  return {
+    count: data.length,
+    posts: data.map(postDateToJSDate),
+  };
+}
+
+export async function getPostById(postNumber: number): Promise<Post> {
+  const { data } = await api.get<Post>(
+    `/repos/${postsRepo}/issues/${postNumber}`
+  );
+  return postDateToJSDate(data);
+}
